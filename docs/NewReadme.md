@@ -4,8 +4,24 @@
 
 [![original readme badge](https://img.shields.io/badge/ML_agents_readme-reference-green)](..\docs\Readme.md)
 
-**This repository is based on the fork of ML-agents.** The goal of this repository is to collect data, and do a research related to predicting performance of ML-Agents, be it actual performance of an agent, or performance of your machine with how long it will take to finish. It will be achieved performing multiple data collection strategies, using the intuitive project layout and performing different ML strategies. The goal of this project holds a very high relevance to the RL in the modern world being a powerful paradigm. owever, RL training
+**Note**. This README might be ahead of the current version if something isn't implemented just yet for example ML model training.
+
+**This repository is based on the [fork of ML-agents](https://github.com/DennisSoemers/ml-agents).** The goal of this repository is to collect data, and do a research related to predicting performance of ML-Agents, be it actual performance of an agent, or performance of your machine with how long it will take to finish. It will be achieved performing multiple data collection strategies, using the intuitive project layout and performing different ML strategies. The goal of this project holds a very high relevance to the RL in the modern world being a powerful paradigm. owever, RL training
 presents significant challenges: runs can take minutes to days, and the impact of hyperparameter choices on duration, resource usage, and performance remains unclear without expensive empirical testing.
+
+# How To Run
+
+## Data Collection
+To run the data collection, you can follow the [README for the ML-Agents](..\docs\Readme.md) to start the training. The data is collected automatically.
+<!---
+Assumption that our way of doing it wil be the same just with data collection and is automated at some point.
+-->
+
+## ML Agent ML Prediction Model Training
+
+<!---
+Insert the explanation on how to train
+--->
 
 # Objectives
 
@@ -33,7 +49,7 @@ hardware specifications?
 RL training is computationally expensive, with runs ranging from minutes to days. Accurate
 duration estimates enable effective resource scheduling and budget allocation. Currently, estimating training time requires expensive pilot experiments or rough heuristics—a predictive model would save significant time and energy costs in large-scale RL research.
 
-### Example input features
+### Input features
 - environment: (Categorical)\
 Available options:
     - 3DBall
@@ -201,6 +217,12 @@ Number of parallel environment instances, if applicable
 - peak_ram_mb: Float\
 Maximum RAM usage in megabytes during entire training run
 
-## Reserach Question Summary
+## Research Question Summary
 
 These three research questions form a comprehensive framework for understanding and predicting computational requirements and outcomes of RL training runs. By addressing training duration (efficiency), final performance (effectiveness), and resource usage (feasibility), our models provide practical tools for RL researchers and practitioners. The questions are deliberately scoped to be answerable with the data we can realistically collect (65--100 runs) while remaining impactful for the broader ML community.
+
+# Software Architecture and Design
+
+This section outlines the technical infrastructure and software components for the project. Our approach builds upon existing, well-established frameworks to ensure reliability and reproducibility.
+
+## Repository Structure
