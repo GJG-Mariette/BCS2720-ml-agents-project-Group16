@@ -2,7 +2,7 @@
 
 [![fork badge](https://img.shields.io/badge/fork_of-ML_Agents-yellow)](https://github.com/DennisSoemers/ml-agents)
 
-[![original readme badge](https://img.shields.io/badge/ML_agents_readme-reference-green)](docs\Readme.md)
+[![original readme badge](https://img.shields.io/badge/ML_agents_readme-reference-green)](./docs/Readme.md)
 
 **Note**. This README might be ahead of the current version if something isn't implemented just yet for example ML model training.
 
@@ -12,7 +12,7 @@ presents significant challenges: runs can take minutes to days, and the impact o
 # How To Run
 
 ## Data Collection
-To run the data collection, you can follow the [README for the ML-Agents](docs\Readme.md) to start the training. The data is collected automatically.
+To run the data collection, you can follow the [README for the ML-Agents](./docs/Readme.md) to start the training. The data is collected automatically.
 <!---
 Assumption that our way of doing it wil be the same just with data collection and is automated at some point.
 -->
