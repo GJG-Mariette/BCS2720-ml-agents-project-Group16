@@ -23,7 +23,7 @@ Assumption that our way of doing it wil be the same just with data collection an
 To run the training, run:
 
 ```
-"insert command" data.csv
+"insert training script path" data.csv
 ```
 
 You can chose to use your own or data already present in the `/data` folder.
@@ -32,7 +32,10 @@ CSV needs to follow a specfic format mentioned in the **Research Questions parag
 
 ### Predictions
 
-To run predictions you have to run the models from the `/models` folder and input the data in a CSV format.
+To run predictions you have to run the models from the `/models` folder and input the data in a CSV format using command.
+```
+"insert prediction script path" predict_data.csv
+```
 <!---
 Just a throwaway text probably will be done differently
 --->
