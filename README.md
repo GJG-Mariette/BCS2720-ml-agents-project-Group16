@@ -18,9 +18,33 @@ Assumption that our way of doing it wil be the same just with data collection an
 -->
 
 ## ML Agent ML Prediction Model Training
+
+### Training
+To run the training, run:
+
+```
+"insert command" data.csv
+```
+
+You can chose to use your own or data already present in the `/data` folder.
+
+CSV needs to follow a specfic format mentioned in the **Research Questions paragraph** with correct input features. The model will be saved in the `/models` folder.
+
+### Predictions
+
+To run predictions you have to run the models from the `/models` folder and input the data in a CSV format.
 <!---
-Insert the explanation on how to train
+Just a throwaway text probably will be done differently
 --->
+
+# Repository Structure
+The project forks the stable ML-Agents branch (fix-numpy-release-21-branch) to ensure compatibility and repro-
+ducibility. Main directories:
+- `/config` – YAML configuration files defining experimental hyperparameters
+- `/scripts` – Python automation for training, logging, and parsing
+- `/data` – Collected CSV/JSON results
+- `/docs` – Setup notes and experiment logs
+- `/models` – Trained ML models
 
 # Objectives
 
@@ -32,7 +56,7 @@ The research objective will be related to the scientific research part. While en
 
 ## Research
 
-**The main research objective is to apply supervised ML to predict deep RL training run properties in Unity ML-Agents.** We will collect data from 15 environments across 4 algorithms (PPO, SAC, POCA, Imitation Learning) with systematic hyperparameter variations, then train regression models to predict training duration, agent performance, and RAM usage.
+**The main research objective is to apply supervised ML to predict deep RL training run properties in Unity ML-Agents.** We will collect data from 15 environments across 4 algorithms `(PPO, SAC, POCA, Imitation Learning)` with systematic hyperparameter variations, then train regression models to predict training duration, agent performance, and RAM usage.
 
 ## Engineering
 
@@ -216,12 +240,3 @@ Number of parallel environment instances, if applicable
 - peak_ram_mb: Float\
 Maximum RAM usage in megabytes during entire training run
 
-## Research Question Summary
-
-These three research questions form a comprehensive framework for understanding and predicting computational requirements and outcomes of RL training runs. By addressing training duration (efficiency), final performance (effectiveness), and resource usage (feasibility), our models provide practical tools for RL researchers and practitioners. The questions are deliberately scoped to be answerable with the data we can realistically collect (65--100 runs) while remaining impactful for the broader ML community.
-
-# Software Architecture and Design
-
-This section outlines the technical infrastructure and software components for the project. Our approach builds upon existing, well-established frameworks to ensure reliability and reproducibility.
-
-## Repository Structure
