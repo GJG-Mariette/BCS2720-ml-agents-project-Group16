@@ -5,6 +5,7 @@ import yaml
 import os
 import numpy as np
 import json
+import psutil
 
 from typing import Callable, Optional, List
 
@@ -34,6 +35,9 @@ from mlagents_envs.timers import (
 from mlagents_envs import logging_util
 from mlagents.plugins.stats_writer import register_stats_writer_plugins
 from mlagents.plugins.trainer_type import register_trainer_plugins
+
+from data_collection import data_collector
+
 
 logger = logging_util.get_logger(__name__)
 
@@ -132,7 +136,8 @@ def run_training(run_seed: int, options: RunOptions, num_areas: int) -> None:
             not checkpoint_settings.inference,
             run_seed,
         )
-
+    
+    p = psutil.Process()
     # Begin training
     try:
         tc.start_learning(env_manager)
@@ -141,6 +146,8 @@ def run_training(run_seed: int, options: RunOptions, num_areas: int) -> None:
         write_run_options(checkpoint_settings.write_path, options)
         write_timing_tree(run_logs_dir)
         write_training_status(run_logs_dir)
+        data_collector.save(options.as_dict(),get_timer_tree(),p)
+    
 
 
 def write_run_options(output_dir: str, run_options: RunOptions) -> None:
