@@ -10,6 +10,10 @@ EXPECTED_TAG = data_collection.__release_tag__
 here = os.path.abspath(os.path.dirname(__file__))
 
 
+# Get the long description from the README file
+with open(os.path.join(here, "README.md"), encoding="utf-8") as f:
+    long_description = f.read()
+
 class VerifyVersionCommand(install):
     """
     Custom command to verify that the git tag is the expected one for the release.
@@ -33,7 +37,7 @@ setup(
     name="data_collection",
     version=VERSION,
     description="Data Collection SCripts",
-    long_description="A packaget to collect data",
+    long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/Unity-Technologies/ml-agents",
     author="Unity Technologies",
