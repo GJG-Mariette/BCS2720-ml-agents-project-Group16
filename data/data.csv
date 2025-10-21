@@ -1,0 +1,2 @@
+,enviroment,algorithm,learning_rate,batch_size,hidden_units,num_layers,max_steps,ram_gb,cpu_cores,time_horizon,buffer_size,num_parallel_agents,training_duration_seconds,final_mean_reward,peak_ram_mb
+0,3DBall,ppo,0.0003,64,128,2,500000,2573389824,16,1000,12000,1,20.353958600000624,1.2372319320721468,348930048
