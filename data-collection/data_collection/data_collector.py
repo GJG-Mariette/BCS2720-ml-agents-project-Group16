@@ -64,15 +64,21 @@ def save (options, tree, p):
     print(os.getcwd())
     '''
     
+    data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'final_mean_reward':[final_mean_reward], 'peak_ram_mb':[peak_ram_mb]}
+
+    new_data = pd.DataFrame.from_dict(data)
+
     try:
-        df = pd.read_csv(DATA_PATH,index_col=0)
-        row = {'enviroment':enviroment, 'algorithm':algorithm, 'learning_rate':learning_rate, 'batch_size':batch_size, 'hidden_units':hidden_units, 'num_layers':num_layers, 'max_steps':max_steps, 'ram_gb':ram_gb, 'cpu_cores':cpu_cores, 'time_horizon':time_horizon, 'buffer_size':buffer_size, 'num_parallel_agents':num_parallel_agents, 'training_duration_seconds':training_duration_seconds, 'final_mean_reward':final_mean_reward, 'peak_ram_mb':peak_ram_mb}
+        df = pd.read_csv(DATA_PATH)
 
-        df = pd.concat([df,pd.DataFrame([row])],ignore_index=True)
+        df = pd.concat([df,new_data])
+
+    except FileNotFoundError:
+        df = new_data
     except pd.errors.EmptyDataError:
-        df = pd.DataFrame({'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'final_mean_reward':[final_mean_reward], 'peak_ram_mb':[peak_ram_mb]})
+        df = new_data
 
-    df.to_csv(DATA_PATH)
+    df.to_csv(DATA_PATH, index = False)
 
 
 
