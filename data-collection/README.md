@@ -10,5 +10,5 @@ The `data_collection` Python package is used in the combination of the modified
 Install the `data_collection` package with:
 
 ```sh
-python -m pip install data_collection
+python -m pip install .\data-collection
 ```
