@@ -36,7 +36,8 @@ def save (options, tree, p):
 
     ram_gb = psutil.virtual_memory().available
 
-    peak_ram_mb = p.memory_info().peak_wset
+    # peak_ram_mb = p.memory_info().peak_wset
+    #TODO Max fix and make it multiplatform
 
     training_duration_seconds = tree["total"]
 
@@ -64,7 +65,10 @@ def save (options, tree, p):
     print(os.getcwd())
     '''
     
-    data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'final_mean_reward':[final_mean_reward], 'peak_ram_mb':[peak_ram_mb]}
+    # data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'final_mean_reward':[final_mean_reward], 'peak_ram_mb':[peak_ram_mb]}
+
+    #temp solution to peak ram not being multiplatform
+    data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'final_mean_reward':[final_mean_reward]}
 
     new_data = pd.DataFrame.from_dict(data)
 
