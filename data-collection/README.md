@@ -7,8 +7,14 @@ The `data_collection` Python package is used in the combination of the modified
 
 ## Installation
 
-Install the `data_collection` package with:
+Install the `data_collection` package with
 
+Windows:
 ```sh
 python -m pip install .\data-collection
+```
+
+Unix:
+```sh
+python -m pip install ./data-collection
 ```
