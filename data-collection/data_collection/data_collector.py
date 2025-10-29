@@ -1,7 +1,13 @@
 import psutil
 import math
 import pandas as pd
-import os
+import platform
+
+try:
+    import resource
+except ImportError:
+    resource = None
+
 
 DATA_PATH = "data/data.csv"
 
@@ -34,10 +40,21 @@ def save (options, tree, p):
 
     cpu_cores = psutil.cpu_count()
 
-    ram_gb = psutil.virtual_memory().available
+    ram_gb = psutil.virtual_memory().available / (1024 * 1024 * 1024)
 
-    # peak_ram_mb = p.memory_info().peak_wset
-    #TODO Max fix and make it multiplatform
+    op_s = platform.system()
+
+    peak_ram_mb = 0 #key data
+    if resource and op_s != 'Windows':
+
+        peak_ram_mb = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
+
+        if op_s == 'Darwin':
+            peak_ram_mb /= 1024
+
+    else:
+        peak_ram_mb = p.memory_info().peak_wset / (1024 * 1024)
+    
 
     training_duration_seconds = tree["total"]
 
@@ -65,10 +82,7 @@ def save (options, tree, p):
     print(os.getcwd())
     '''
     
-    # data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'final_mean_reward':[final_mean_reward], 'peak_ram_mb':[peak_ram_mb]}
-
-    #temp solution to peak ram not being multiplatform
-    data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'final_mean_reward':[final_mean_reward]}
+    data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'final_mean_reward':[final_mean_reward], 'peak_ram_mb':[peak_ram_mb]}
 
     new_data = pd.DataFrame.from_dict(data)
 
@@ -83,14 +97,3 @@ def save (options, tree, p):
         df = new_data
 
     df.to_csv(DATA_PATH, index = False)
-
-
-
-
-
-# def main():
-#     learn.run_cli(learn.parse_command_line(),DataSaver())
-
-# # For python debugger to directly run this script
-# if __name__ == "__main__":
-#     main()
