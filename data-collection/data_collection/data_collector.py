@@ -28,6 +28,26 @@ def save (options, tree, p):
 
     buffer_size = hyperparameters["buffer_size"] #key data
 
+    beta = hyperparameters.get("beta",0.0) #key data
+
+    epsilon = hyperparameters.get("epsilon",0.0) #key data
+
+    lambd = hyperparameters.get("lambd",0.0) #key data
+
+    num_epoch = hyperparameters.get("num_epoch",0) #key data
+
+    tau = hyperparameters.get("tau",0.0) #key data
+
+    init_entcoef = hyperparameters.get("init_entcoef",0.0) #key data
+
+    reward_signal_steps_per_update = hyperparameters.get("init_entcoef",0.0) #key data
+
+    gamma = enviroment_parameters["reward_signals"]["extrinsic"]["gamma"] #key data
+
+    strength = enviroment_parameters["reward_signals"]["extrinsic"]["strength"] #key data
+
+    summary_freq = enviroment_parameters["summary_freq"] #key data
+
     network_settings = enviroment_parameters["reward_signals"]["extrinsic"]["network_settings"]
 
     hidden_units = network_settings["hidden_units"] #key data
@@ -38,9 +58,9 @@ def save (options, tree, p):
 
     max_steps = enviroment_parameters["max_steps"] #key data
 
-    cpu_cores = psutil.cpu_count()
+    cpu_cores = psutil.cpu_count() #key data
 
-    ram_gb = psutil.virtual_memory().available / (1024 * 1024 * 1024)
+    ram_gb = psutil.virtual_memory().available / (1024 * 1024 * 1024) #key data
 
     op_s = platform.system()
 
@@ -56,9 +76,49 @@ def save (options, tree, p):
         peak_ram_mb = p.memory_info().peak_wset / (1024 * 1024)
     
 
-    training_duration_seconds = tree["total"]
+    training_duration_seconds = tree["total"] #key data
 
-    final_mean_reward = tree["gauges"][enviroment+".Policy.ExtrinsicReward.mean"]["value"]
+    gauges = tree["gauges"]
+
+    final_mean_entropy = get_timers_data(gauges,enviroment+".Policy.Entropy.mean") 
+
+    final_sum_entropy = get_timers_data(gauges,enviroment+".Policy.Entropy.sum")
+
+    final_mean_reward = get_timers_data(gauges,enviroment+".Policy.ExtrinsicReward.mean")
+
+    final_sum_reward = get_timers_data(gauges,enviroment+".Policy.ExtrinsicReward.sum")
+
+    final_cumulative_mean_reward = get_timers_data(gauges,enviroment+".Environment.CumulativeReward.mean")
+
+    final_cumulative_sum_reward = get_timers_data(gauges,enviroment+".Environment.CumulativeReward.sum")
+
+    final_mean_extrinsic_value_estimate = get_timers_data(gauges,enviroment+".Policy.ExtrinsicValueEstimate.mean")
+
+    final_sum_extrinsic_value_estimate = get_timers_data(gauges,enviroment+".Policy.ExtrinsicValueEstimate.sum")
+
+    final_mean_policy_loss = get_timers_data(gauges,enviroment+".Losses.PolicyLoss.mean")
+
+    final_sum_policy_loss = get_timers_data(gauges,enviroment+".Losses.PolicyLoss.sum")
+
+    final_mean_value_loss = get_timers_data(gauges,enviroment+".Losses.ValueLoss.mean")
+
+    final_sum_value_loss = get_timers_data(gauges,enviroment+".Losses.ValueLoss.sum")
+
+    final_mean_q1_loss = get_timers_data(gauges,enviroment+".Losses.Q1Loss.mean")
+
+    final_sum_q1_loss = get_timers_data(gauges,enviroment+".Losses.Q1Loss.sum")
+
+    final_mean_q2_loss = get_timers_data(gauges,enviroment+".Losses.Q2Loss.mean")
+
+    final_sum_q2_loss = get_timers_data(gauges,enviroment+".Losses.Q2Loss.sum")
+    
+    final_mean_cont_entropy_coeff = get_timers_data(gauges,enviroment+".Policy.ContinuousEntropyCoeff.mean")
+
+    final_sum_cont_entropy_coeff = get_timers_data(gauges,enviroment+".Policy.ContinuousEntropyCoeff.sum")
+
+    final_learning_rate_mean = get_timers_data(gauges,enviroment+".Policy.LearningRate.mean")
+
+    final_learning_rate_sum = get_timers_data(gauges,enviroment+".Policy.LearningRate.sum")
 
     num_parallel_agents = tree["children"]["TrainerController.start_learning"]["children"]["trainer_threads"]["total"]
     num_parallel_agents = math.ceil(num_parallel_agents)
@@ -82,7 +142,7 @@ def save (options, tree, p):
     print(os.getcwd())
     '''
     
-    data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'final_mean_reward':[final_mean_reward], 'peak_ram_mb':[peak_ram_mb]}
+    data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'beta': [beta], 'epsilon':[epsilon], 'lambd':[lambd], 'num_epoch':num_epoch, 'tau':[tau], 'reward_signal_steps_per_update':[reward_signal_steps_per_update], 'init_entcoef':[init_entcoef], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'peak_ram_mb':[peak_ram_mb], 'gamma':[gamma], 'strength':[strength], 'summary_freq':[summary_freq],'final_mean_entropy':[final_mean_entropy], 'final_sum_entropy':[final_sum_entropy], 'final_mean_reward':[final_mean_reward], 'final_sum_reward':[final_sum_reward], 'final_cumulative_mean_reward':[final_cumulative_mean_reward], 'final_cumulative_sum_reward':[final_cumulative_sum_reward], 'final_mean_extrinsic_value_estimate':[final_mean_extrinsic_value_estimate],'final_sum_extrinsic_value_estimate':[final_sum_extrinsic_value_estimate], 'final_mean_policy_loss':[final_mean_policy_loss],'final_sum_policy_loss':[final_sum_policy_loss],'final_mean_value_loss':[final_mean_value_loss],'final_sum_value_loss':[final_sum_value_loss], 'final_mean_q1_loss':[final_mean_q1_loss],'final_sum_q1_loss':[final_sum_q1_loss],'final_mean_q2_loss':[final_mean_q2_loss],'final_sum_q2_loss':[final_sum_q2_loss],'final_mean_cont_entropy_coeff':[final_mean_cont_entropy_coeff],'final_sum_cont_entropy_coeff':[final_sum_cont_entropy_coeff],'final_learning_rate_mean':[final_learning_rate_mean],'final_learning_rate_sum':[final_learning_rate_sum]}
 
     new_data = pd.DataFrame.from_dict(data)
 
@@ -97,3 +157,8 @@ def save (options, tree, p):
         df = new_data
 
     df.to_csv(DATA_PATH, index = False)
+
+
+def get_timers_data(gauges,key):
+    timer_dict = gauges.get(key,dict())
+    return timer_dict.get("value",0)
