@@ -55,12 +55,13 @@ setup(
     zip_safe=False,
     install_requires=[
         # Test-only dependencies should go in test_requirements.txt, not here.
+        "onnxscript",
         "grpcio>=1.11.0,<=1.48.2",
         "h5py>=2.9.0",
         f"mlagents_envs=={VERSION}",
         "numpy>=1.23.5,<1.24.0",
         "Pillow>=4.2.1",
-        "protobuf>=3.6,<3.21",
+        "protobuf==3.20.2",
         "pyyaml>=3.1.0",
         "torch>=2.1.1",
         "tensorboard>=2.14",
@@ -72,8 +73,8 @@ setup(
         "attrs>=19.3.0",
         "huggingface_hub>=0.14",
         'pypiwin32==223;platform_system=="Windows"',
-        "onnx==1.15.0",
-        "psutil>=7.1.1"
+        "onnx>=1.16.0,<1.19.1",
+        "psutil>=7.1.1",
     ],
     python_requires=">=3.10.1,<=3.10.12",
     entry_points={
