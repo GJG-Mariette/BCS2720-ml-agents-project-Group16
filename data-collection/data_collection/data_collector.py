@@ -78,7 +78,7 @@ def save (options, tree, p):
 
     training_duration_seconds = tree["total"] #key data
 
-    gauges = tree["gauges"]
+    gauges = tree.get("gauges",None)
 
     final_mean_entropy = get_timers_data(gauges,enviroment+".Policy.Entropy.mean") 
 
@@ -160,5 +160,8 @@ def save (options, tree, p):
 
 
 def get_timers_data(gauges,key):
+    if gauges == None:
+        return 0
+    
     timer_dict = gauges.get(key,dict())
     return timer_dict.get("value",0)
