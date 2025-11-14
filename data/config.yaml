@@ -2,24 +2,24 @@ behaviors:
   3DBall:
     trainer_type: poca
     hyperparameters:
-      batch_size: 41
-      buffer_size: 1622297
-      learning_rate: 0.00574244689721997
-      beta: 0.062184445107051865
-      epsilon: 0.28653845213292206
-      lambd: 0.8459758817246994
-      num_epoch: 2
+      batch_size: 1136
+      buffer_size: 2355321
+      learning_rate: 0.004249901746332114
+      beta: 0.08452625766440428
+      epsilon: 0.23158227843443013
+      lambd: 0.8471732220188829
+      num_epoch: 5
       learning_rate_schedule: constant
     network_settings:
       normalize: true
-      hidden_units: 931
-      layers: 2
+      hidden_units: 744
+      layers: 3
       vis_encode_type: simple
     reward_signals:
       extrinsic:
-        gamma: 0.8511751945051664
+        gamma: 0.9155092166132364
         strength: 1.0
     keep_checkpoints: 5
-    max_steps: 5580833
-    time_horizon: 538
-    summary_freq: 26242
+    max_steps: 6715329
+    time_horizon: 9
+    summary_freq: 44799
