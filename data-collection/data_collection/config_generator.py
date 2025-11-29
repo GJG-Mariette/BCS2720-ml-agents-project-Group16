@@ -5,7 +5,7 @@ config_path = "data/config.yaml"
 
 
 def generate_config():
-    behaviours = ["3DBall","Basic","Crawler","FoodCollector","GridWorld","Hallway","Pyramids","Walker","WallJump","Worm","PushBlock","DungeonEscape","SoccerTwos","StrikerVsGoalie"]
+    behaviours = ["3DBall","Basic","Crawler","FoodCollector","GridWorld","Hallway","Pyramids","Walker","WallJump","Worm"]
     behaviour = random.choice(behaviours)
 
     trainer_types = [generate_poca,generate_ppo,generate_sac]
@@ -38,8 +38,8 @@ def generate_poca(behaviour, main_dict = {}):
 
     batch_size = random.randint(min_batch_size,max_batch_size)
 
-    min_max_steps = 100000
-    max_max_steps = 20000000
+    min_max_steps = 10000
+    max_max_steps = 15000000
     
     max_steps = random.randint(min_max_steps,max_max_steps)
 
@@ -159,8 +159,8 @@ def generate_ppo(behaviour, main_dict = {}):
 
     batch_size = random.randint(min_batch_size,max_batch_size)
 
-    min_max_steps = 100000
-    max_max_steps = 20000000
+    min_max_steps = 10000
+    max_max_steps = 15000000
     
     max_steps = random.randint(min_max_steps,max_max_steps)
 
@@ -280,8 +280,8 @@ def generate_sac(behaviour, main_dict = {}):
 
     batch_size = random.randint(min_batch_size,max_batch_size)
 
-    min_max_steps = 100000
-    max_max_steps = 20000000
+    min_max_steps = 10000
+    max_max_steps = 15000000
     
     max_steps = random.randint(min_max_steps,max_max_steps)
 
@@ -313,7 +313,7 @@ def generate_sac(behaviour, main_dict = {}):
 
     reward_signal_steps_per_update = random.choice([5,10,15,20,25,30])
 
-    learning_rate_schedule = "linear"
+    learning_rate_schedule = "constant"
 
     hyperparameters_dict["batch_size"] = batch_size
     hyperparameters_dict["buffer_size"] = buffer_size

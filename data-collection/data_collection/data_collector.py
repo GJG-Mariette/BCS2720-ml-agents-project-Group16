@@ -11,7 +11,7 @@ except ImportError:
 
 DATA_PATH = "data/data.csv"
 
-def save (options, tree, p):
+def save (options, tree, saved_state, p):
     behaviours = options["behaviors"]
 
     enviroment = sorted(behaviours.keys())[0] #key data
@@ -56,7 +56,7 @@ def save (options, tree, p):
 
     time_horizon = enviroment_parameters["time_horizon"] #key data
 
-    max_steps = enviroment_parameters["max_steps"] #key data
+    steps = saved_state[enviroment]["final_checkpoint"]["steps"] #key data
 
     cpu_cores = psutil.cpu_count() #key data
 
@@ -132,7 +132,7 @@ def save (options, tree, p):
     print(hidden_units)
     print(num_layers)
     print(time_horizon)
-    print(max_steps)
+    print(steps)
     print(cpu_cores)
     print(ram_gb)
     print(peak_ram_mb)
@@ -142,7 +142,7 @@ def save (options, tree, p):
     print(os.getcwd())
     '''
     
-    data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'max_steps':[max_steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'beta': [beta], 'epsilon':[epsilon], 'lambd':[lambd], 'num_epoch':num_epoch, 'tau':[tau], 'reward_signal_steps_per_update':[reward_signal_steps_per_update], 'init_entcoef':[init_entcoef], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'peak_ram_mb':[peak_ram_mb], 'gamma':[gamma], 'strength':[strength], 'summary_freq':[summary_freq],'final_mean_entropy':[final_mean_entropy], 'final_sum_entropy':[final_sum_entropy], 'final_mean_reward':[final_mean_reward], 'final_sum_reward':[final_sum_reward], 'final_cumulative_mean_reward':[final_cumulative_mean_reward], 'final_cumulative_sum_reward':[final_cumulative_sum_reward], 'final_mean_extrinsic_value_estimate':[final_mean_extrinsic_value_estimate],'final_sum_extrinsic_value_estimate':[final_sum_extrinsic_value_estimate], 'final_mean_policy_loss':[final_mean_policy_loss],'final_sum_policy_loss':[final_sum_policy_loss],'final_mean_value_loss':[final_mean_value_loss],'final_sum_value_loss':[final_sum_value_loss], 'final_mean_q1_loss':[final_mean_q1_loss],'final_sum_q1_loss':[final_sum_q1_loss],'final_mean_q2_loss':[final_mean_q2_loss],'final_sum_q2_loss':[final_sum_q2_loss],'final_mean_cont_entropy_coeff':[final_mean_cont_entropy_coeff],'final_sum_cont_entropy_coeff':[final_sum_cont_entropy_coeff],'final_learning_rate_mean':[final_learning_rate_mean],'final_learning_rate_sum':[final_learning_rate_sum]}
+    data = {'enviroment':[enviroment], 'algorithm':[algorithm], 'learning_rate':[learning_rate], 'batch_size':[batch_size], 'hidden_units':[hidden_units], 'num_layers':[num_layers], 'steps':[steps], 'ram_gb':[ram_gb], 'cpu_cores':[cpu_cores], 'time_horizon':[time_horizon], 'buffer_size':[buffer_size], 'beta': [beta], 'epsilon':[epsilon], 'lambd':[lambd], 'num_epoch':num_epoch, 'tau':[tau], 'reward_signal_steps_per_update':[reward_signal_steps_per_update], 'init_entcoef':[init_entcoef], 'num_parallel_agents':[num_parallel_agents], 'training_duration_seconds':[training_duration_seconds], 'peak_ram_mb':[peak_ram_mb], 'gamma':[gamma], 'strength':[strength], 'summary_freq':[summary_freq],'final_mean_entropy':[final_mean_entropy], 'final_sum_entropy':[final_sum_entropy], 'final_mean_reward':[final_mean_reward], 'final_sum_reward':[final_sum_reward], 'final_cumulative_mean_reward':[final_cumulative_mean_reward], 'final_cumulative_sum_reward':[final_cumulative_sum_reward], 'final_mean_extrinsic_value_estimate':[final_mean_extrinsic_value_estimate],'final_sum_extrinsic_value_estimate':[final_sum_extrinsic_value_estimate], 'final_mean_policy_loss':[final_mean_policy_loss],'final_sum_policy_loss':[final_sum_policy_loss],'final_mean_value_loss':[final_mean_value_loss],'final_sum_value_loss':[final_sum_value_loss], 'final_mean_q1_loss':[final_mean_q1_loss],'final_sum_q1_loss':[final_sum_q1_loss],'final_mean_q2_loss':[final_mean_q2_loss],'final_sum_q2_loss':[final_sum_q2_loss],'final_mean_cont_entropy_coeff':[final_mean_cont_entropy_coeff],'final_sum_cont_entropy_coeff':[final_sum_cont_entropy_coeff],'final_learning_rate_mean':[final_learning_rate_mean],'final_learning_rate_sum':[final_learning_rate_sum]}
 
     new_data = pd.DataFrame.from_dict(data)
 
