@@ -146,7 +146,7 @@ def run_training(run_seed: int, options: RunOptions, num_areas: int) -> None:
         write_run_options(checkpoint_settings.write_path, options)
         write_timing_tree(run_logs_dir)
         write_training_status(run_logs_dir)
-        data_collector.save(options.as_dict(),get_timer_tree(),p)
+        data_collector.save(options.as_dict(),get_timer_tree(),GlobalTrainingStatus.saved_state,p)
     
 
 
