@@ -70,7 +70,7 @@ setup(
     python_requires=">=3.10.1,<=3.10.12",
     entry_points={
         "console_scripts": [
-            "data-model-test=data_collection.models.model-test:main",
+            "data-model-test=data_collection.models.model_test:main",
         ],
     },
     cmdclass={"verify": VerifyVersionCommand},
