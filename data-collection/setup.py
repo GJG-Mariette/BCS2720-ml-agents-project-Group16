@@ -62,9 +62,16 @@ setup(
         "filelock>=3.4.0",
         "psutil>=7.1.1",
         "pandas>=2.3.3",
-        "python-resources>=0.3"
+        "python-resources>=0.3",
+        "scikit-learn>=1.7.0",
+        "matplotlib",
+        "seaborn"
     ],
     python_requires=">=3.10.1,<=3.10.12",
-    # TODO: Remove this once mypy stops having spurious setuptools issues.
-    cmdclass={"verify": VerifyVersionCommand},  # type: ignore
+    entry_points={
+        "console_scripts": [
+            "data-model-test=data_collection.models.model-test:main",
+        ],
+    },
+    cmdclass={"verify": VerifyVersionCommand},
 )

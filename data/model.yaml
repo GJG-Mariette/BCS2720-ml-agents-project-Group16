@@ -1,0 +1,29 @@
+Model:
+  Polynomial Regression:
+    Features:
+      - enviroment
+      - algorithm
+      - learning_rate
+      - batch_size
+      - hidden_units
+      - num_layers
+      - steps
+      - ram_gb
+      - cpu_cores
+      - time_horizon
+      - buffer_size
+      - beta
+      - epsilon
+      - lambd
+      - num_epoch
+      - tau
+      - reward_signal_steps_per_update
+      - init_entcoef
+      - num_parallel_agents
+      - gamma
+      - strength
+      - summary_freq
+    Targets:
+      - training_duration_seconds
+      - peak_ram_mb
+      - final_mean_reward
