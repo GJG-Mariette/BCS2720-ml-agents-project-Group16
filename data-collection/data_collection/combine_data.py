@@ -17,7 +17,7 @@ def combine_data(d1,d2):
     df2 = pandas.read_csv(d2)
 
     merged_df = pandas.concat([df1, df2], join='inner', ignore_index=True)
-    merged_df.to_csv(MASTER_DATA)
+    merged_df.to_csv(MASTER_DATA,index=None)
 
     folder = os.getcwd()
 
