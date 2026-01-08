@@ -1,0 +1,27 @@
+behaviors:
+  Crawler:
+    trainer_type: sac
+    hyperparameters:
+      batch_size: 512
+      buffer_size: 544082
+      learning_rate: 0.00013910313697942055
+      buffer_init_steps: 10000
+      tau: 0.0036297588213480216
+      steps_per_update: 1
+      save_replay_buffer: false
+      init_entcoef: 0.4900581354457151
+      reward_signal_steps_per_update: 10
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: true
+      hidden_units: 883
+      num_layers: 1
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.8900254023031753
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 446310
+    time_horizon: 1452
+    summary_freq: 31328

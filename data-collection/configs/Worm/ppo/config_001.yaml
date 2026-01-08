@@ -1,0 +1,25 @@
+behaviors:
+  Worm:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 512
+      buffer_size: 10240
+      learning_rate: 0.00010707081139197256
+      beta: 0.006470037284897681
+      epsilon: 0.28696521559231913
+      lambd: 0.919607842367707
+      num_epoch: 10
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: true
+      hidden_units: 594
+      num_layers: 4
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.9509474065907987
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 766694
+    time_horizon: 1024
+    summary_freq: 10000

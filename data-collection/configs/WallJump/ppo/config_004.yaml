@@ -1,0 +1,49 @@
+behaviors:
+  BigWallJump:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 256
+      buffer_size: 10240
+      learning_rate: 0.00011466028934325024
+      beta: 0.0023818861033050075
+      epsilon: 0.28231583663007864
+      lambd: 0.9249625087761809
+      num_epoch: 6
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: false
+      hidden_units: 180
+      num_layers: 3
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.8854078064230214
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 994950
+    time_horizon: 64
+    summary_freq: 10000
+  SmallWallJump:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 512
+      buffer_size: 4096
+      learning_rate: 0.0009052502623870188
+      beta: 0.00864799553597274
+      epsilon: 0.20085344797409632
+      lambd: 0.9527965429614391
+      num_epoch: 4
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: false
+      hidden_units: 505
+      num_layers: 4
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.8070733690229177
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 647067
+    time_horizon: 256
+    summary_freq: 10000

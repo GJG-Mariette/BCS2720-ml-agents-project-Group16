@@ -1,0 +1,30 @@
+behaviors:
+  Hallway:
+    trainer_type: sac
+    hyperparameters:
+      batch_size: 128
+      buffer_size: 400547
+      learning_rate: 0.0001735301244736255
+      buffer_init_steps: 10000
+      tau: 0.0034430914762381263
+      steps_per_update: 5
+      save_replay_buffer: false
+      init_entcoef: 0.9365499744778377
+      reward_signal_steps_per_update: 5
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: true
+      hidden_units: 763
+      num_layers: 4
+      vis_encode_type: simple
+      memory:
+        sequence_length: 64
+        memory_size: 128
+    reward_signals:
+      extrinsic:
+        gamma: 0.9924577665205759
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 321480
+    time_horizon: 594
+    summary_freq: 64337

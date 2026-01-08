@@ -1,0 +1,31 @@
+behaviors:
+  Pyramids:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 64
+      buffer_size: 10240
+      learning_rate: 0.00025722241224683117
+      beta: 0.004071297745187238
+      epsilon: 0.18519054318191763
+      lambd: 0.9401529138212
+      num_epoch: 3
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: false
+      hidden_units: 697
+      num_layers: 1
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.9593946197533525
+        strength: 1.0
+      curiosity:
+        gamma: 0.99
+        encoding_size: 0.2
+        network_settings:
+          hidden_units: 256
+        learning_rate: 0.0003
+    keep_checkpoints: 5
+    max_steps: 544550
+    time_horizon: 64
+    summary_freq: 10000

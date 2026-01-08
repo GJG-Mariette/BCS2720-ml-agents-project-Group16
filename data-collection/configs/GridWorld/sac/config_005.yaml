@@ -1,0 +1,27 @@
+behaviors:
+  GridWorld:
+    trainer_type: sac
+    hyperparameters:
+      batch_size: 512
+      buffer_size: 365518
+      learning_rate: 0.00015192640850140966
+      buffer_init_steps: 5000
+      tau: 0.0036888657227100007
+      steps_per_update: 1
+      save_replay_buffer: false
+      init_entcoef: 0.8927008920596344
+      reward_signal_steps_per_update: 5
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: true
+      hidden_units: 445
+      num_layers: 5
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.9317740611805636
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 368360
+    time_horizon: 1668
+    summary_freq: 85743

@@ -1,0 +1,28 @@
+behaviors:
+  Hallway:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 256
+      buffer_size: 8192
+      learning_rate: 0.00019930042036843667
+      beta: 0.00744683788499442
+      epsilon: 0.19753920250987939
+      lambd: 0.9465866885051222
+      num_epoch: 9
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: true
+      hidden_units: 495
+      num_layers: 4
+      vis_encode_type: simple
+      memory:
+        sequence_length: 64
+        memory_size: 128
+    reward_signals:
+      extrinsic:
+        gamma: 0.9444306566684412
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 531352
+    time_horizon: 256
+    summary_freq: 10000

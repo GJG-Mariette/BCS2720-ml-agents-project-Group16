@@ -1,0 +1,25 @@
+behaviors:
+  FoodCollector:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 64
+      buffer_size: 10240
+      learning_rate: 0.00012524259177021849
+      beta: 0.007666267281504785
+      epsilon: 0.1391515207304328
+      lambd: 0.9233987609349783
+      num_epoch: 3
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: true
+      hidden_units: 287
+      num_layers: 1
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.9298859546135343
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 503869
+    time_horizon: 512
+    summary_freq: 10000

@@ -1,0 +1,25 @@
+behaviors:
+  Basic:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 64
+      buffer_size: 4096
+      learning_rate: 0.00011417747861522544
+      beta: 0.008954842506211563
+      epsilon: 0.2564057356670656
+      lambd: 0.9804488870422174
+      num_epoch: 6
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: false
+      hidden_units: 153
+      num_layers: 1
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.8772044166128111
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 732254
+    time_horizon: 512
+    summary_freq: 10000

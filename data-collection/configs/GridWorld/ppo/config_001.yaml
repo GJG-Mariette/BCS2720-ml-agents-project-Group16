@@ -1,0 +1,25 @@
+behaviors:
+  GridWorld:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 64
+      buffer_size: 8192
+      learning_rate: 0.0002144384357389396
+      beta: 0.005737225524888782
+      epsilon: 0.10079716413579727
+      lambd: 0.9086231617860533
+      num_epoch: 3
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: false
+      hidden_units: 803
+      num_layers: 3
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.8506051811824743
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 835746
+    time_horizon: 256
+    summary_freq: 10000

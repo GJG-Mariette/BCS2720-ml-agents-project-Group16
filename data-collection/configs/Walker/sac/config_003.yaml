@@ -1,0 +1,27 @@
+behaviors:
+  Walker:
+    trainer_type: sac
+    hyperparameters:
+      batch_size: 256
+      buffer_size: 496980
+      learning_rate: 0.0003133221124584124
+      buffer_init_steps: 5000
+      tau: 0.009531620508192047
+      steps_per_update: 1
+      save_replay_buffer: false
+      init_entcoef: 0.4799816724169804
+      reward_signal_steps_per_update: 10
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: false
+      hidden_units: 353
+      num_layers: 1
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.9642727640473349
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 537616
+    time_horizon: 447
+    summary_freq: 52267

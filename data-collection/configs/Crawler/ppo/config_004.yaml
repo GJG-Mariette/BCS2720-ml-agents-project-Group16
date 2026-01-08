@@ -1,0 +1,25 @@
+behaviors:
+  Crawler:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 128
+      buffer_size: 4096
+      learning_rate: 0.0002815370559233404
+      beta: 0.0027251990725719478
+      epsilon: 0.24327884923791157
+      lambd: 0.9569193404397609
+      num_epoch: 8
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: true
+      hidden_units: 624
+      num_layers: 3
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.9607774412197925
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 597345
+    time_horizon: 64
+    summary_freq: 10000

@@ -1,0 +1,25 @@
+behaviors:
+  Walker:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 2048
+      buffer_size: 4096
+      learning_rate: 0.0002649053315189996
+      beta: 0.007364639906091432
+      epsilon: 0.27365903080525833
+      lambd: 0.9649118203579291
+      num_epoch: 8
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: true
+      hidden_units: 136
+      num_layers: 2
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.8487332411287912
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 927710
+    time_horizon: 256
+    summary_freq: 10000

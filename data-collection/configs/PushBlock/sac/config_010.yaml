@@ -1,0 +1,27 @@
+behaviors:
+  PushBlock:
+    trainer_type: sac
+    hyperparameters:
+      batch_size: 256
+      buffer_size: 413196
+      learning_rate: 0.00028732984531048053
+      buffer_init_steps: 10000
+      tau: 0.0038990739853854875
+      steps_per_update: 5
+      save_replay_buffer: false
+      init_entcoef: 0.0937856490895718
+      reward_signal_steps_per_update: 10
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: false
+      hidden_units: 130
+      num_layers: 1
+      vis_encode_type: simple
+    reward_signals:
+      extrinsic:
+        gamma: 0.9001759679450974
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 424113
+    time_horizon: 1557
+    summary_freq: 80022
