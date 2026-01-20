@@ -71,6 +71,7 @@ setup(
     entry_points={
         "console_scripts": [
             "data-model-test=data_collection.models.model_test:main",
+            "combine-csvs=data_collection.combine_data:main"
         ],
     },
     cmdclass={"verify": VerifyVersionCommand},

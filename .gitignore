@@ -103,3 +103,4 @@ coverage.xml
 !/data/data.csv
 !/data/model.yaml
 !/data/readm.md
+!/data/master_data.csv
