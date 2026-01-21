@@ -60,7 +60,7 @@ To run the data collection, you can follow the [README for the ML-Agents](./docs
 
 ### Predictions
 
-To run predictions you have to run the models from the `/data-collection/data_collection/models/model-files/` by addingthe path into a config at `/data-collection/data_collection/models/prediction_models/`. You can edit which features to use and which model to use from the `\model-files` folder.
+To run predictions. You have to modify the config at `/data-collection/data_collection/models/prediction_models/` you would use for the prediction script. You have to select the model from `/data-collection/data_collection/models/model-files/` folder or pass your own. You can edit which features to use since some models may use non-numeric data.
 ```
 predict_data path/to/config.yaml
 ```
