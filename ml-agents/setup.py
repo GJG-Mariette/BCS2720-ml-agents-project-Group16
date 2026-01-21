@@ -59,7 +59,7 @@ setup(
         "grpcio>=1.11.0,<=1.48.2",
         "h5py>=2.9.0",
         f"mlagents_envs=={VERSION}",
-        "numpy>=1.23.5,<1.24.0",
+        "numpy>=1.26.1",
         "Pillow>=4.2.1",
         "protobuf==3.20.2",
         "pyyaml>=3.1.0",

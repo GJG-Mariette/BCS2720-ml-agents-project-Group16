@@ -58,20 +58,22 @@ setup(
         "pyyaml>=3.1.0",
         "gym>=0.21.0",
         "pettingzoo==1.15.0",
-        "numpy>=1.23.5,<1.24.0",
         "filelock>=3.4.0",
         "psutil>=7.1.1",
         "pandas>=2.3.3",
         "python-resources>=0.3",
         "scikit-learn>=1.7.0",
+        "numpy>=1.26.1",
         "matplotlib",
-        "seaborn"
+        "seaborn",
+        "joblib"
     ],
     python_requires=">=3.10.1,<=3.10.12",
     entry_points={
         "console_scripts": [
             "data-model-test=data_collection.models.model_test:main",
-            "combine-csvs=data_collection.combine_data:main"
+            "combine-csvs=data_collection.combine_data:main",
+            "predict_data=data_collection.models.model_predict:main",
         ],
     },
     cmdclass={"verify": VerifyVersionCommand},

@@ -1,0 +1,41 @@
+Model: data-collection\data_collection\models\model_files\performance_model_rfr_ppo.pkl
+Features:
+  # for performance and ram estimators
+  #integer: (3DBall: 0, 3DBallHard: 1, Basic: 2, BigWallJump: 3 Crawler: 4, FoodCollector: 5, GridFoodCollector: 6, GridWorld: 7, Hallway: 8, PushBlock: 9, Pyramids: 10, Sorter: 11, Walker: 12, Worm: 13)
+  enviroment: 10
+  # for performance and ram estimators
+  #integer: (ppo: 0, sac: 1)
+  algorithm: 0
+  #float
+  learning_rate: 0.001
+  #integer
+  batch_size: 4096
+  #integer
+  hidden_units: 128
+  #integer
+  num_layers: 3
+  #integer
+  steps: 2000000
+  #float
+  ram_gb: 64.0
+  #integer
+  cpu_cores: 8
+  #integer
+  time_horizon: 1024
+  #integer
+  buffer_size: 327680
+  #float
+  beta: 0.001067
+  #float
+  epsilon: 0.150
+  #float
+  lambd: 0.908
+  #float
+  num_epoch: 3.0
+  #float
+  summary_freq: 12000
+  # for performance and ram estimators
+  #integer: (Windows: 0, Windows 11: 1, macOS: 2, otherwise: 3)
+  os: 3
+  #boolean
+  gpu_available: False
