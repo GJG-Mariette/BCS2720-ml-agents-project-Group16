@@ -58,12 +58,21 @@ Just make sure you install ml-agents-envs before ml-agents
 ## Data Collection
 To run the data collection, you can follow the [README for the ML-Agents](./docs/Readme.md) to start the training. The data is collected automatically.
 
-### Predictions
+## Predictions
 
 To run predictions. You have to modify the config at `/data-collection/data_collection/models/prediction_models/` you would use for the prediction script. You have to select the model from `/data-collection/data_collection/models/model-files/` folder or pass your own. You can edit which features to use since some models may use non-numeric data.
 ```
 predict_data path/to/config.yaml
 ```
+
+## Data Combination
+
+There is a command to combine two data files by their intersection of columns.
+```
+combine_csvs path/to/csv1.csv path/to/csv2.csv
+```
+
+The file is exported to `/data` folder under the name `master_data.csv`.
 
 **Note** current prediction config is made to work for Ram and Performance prediction, it would be needed to change the config in order to predict duration by adding more features.
 
