@@ -106,6 +106,8 @@ Build a clean, well-documented public GitHub repository containing our data coll
 
 ## Setup (Reproduce via Google Colab)
 
+Our colab code can be observed on git in the given [repository](/predictors_notebooks). For it to be functional here is a [link](https://drive.google.com/drive/folders/1hL6CULPrT9vuVchdySfKBnUUm20Z-lWh?usp=sharing)
+
 We reproduce all experiments using Google Colab notebooks stored in Google Drive under:
 
 `RL_Predictor_Project/`
