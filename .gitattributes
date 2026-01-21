@@ -5,4 +5,3 @@
 */CommunicatorObjects/* binary
 */communicator_objects/* binary
 *.md text
-*.pkl filter=lfs diff=lfs merge=lfs -text
